@@ -38,6 +38,7 @@ async ()=>{
 
 
 
+
 // HTTP server and routes
 let app = express()
 if (NODE_ENV === 'development') {
@@ -76,8 +77,6 @@ app.post('*', setFileMeta, setDirDetails, (req, res, next) => {
 		// attempting to update a directory
 		if (req.isDir) return res.status(405).send('Path is a directory')
 
-		// await fs.promise.truncate(req.filePath, 0)
-		// req.pipe(fs.createWriteStream(req.filePath))
 		await common.post(req.absFilePath, JSON.stringify(req.body))
 		if (res.statusCode === 200) {
 			sendClientSyncMessage("update", req)
