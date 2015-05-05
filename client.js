@@ -5,7 +5,6 @@ let argv = require('yargs')
 	.argv
 let net = require('net')
 let JsonSocket = require('json-socket')
-let chokidar = require('chokidar')
 
 let common = require('./common.js')
 
@@ -52,17 +51,3 @@ client.on('message', function(message) {
 			console.log('Invalid action')
 	}
 })
-
-let watcher = chokidar.watch(argv.dir, {
-  ignored: /[\/\\]\./,
-  persistent: true
-})
-watcher
-	.on('add', function(watchPath) { console.log('File', watchPath, 'has been added') })
-	.on('change', function(watchPath) { console.log('File', watchPath, 'has been changed') })
-	.on('unlink', function(watchPath) { console.log('File', watchPath, 'has been removed') })
-	.on('addDir', function(watchPath) {
-		console.log('Directory', watchPath, 'has been added')
-		client.sendMessage('test')
-	})
-
