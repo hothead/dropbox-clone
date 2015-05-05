@@ -29,5 +29,5 @@ Time spent: `~8 hours`
 
 ### Walkthrough
 
-![Video Walkthrough](https://vimeo.com/user39231823/videos)
+![Video Walkthrough](dropbox-clone-walkthrough.gif)
 
