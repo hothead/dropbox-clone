@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run server & npm run client",
-    "server": "nodemon --exec babel-node -- --stage 1 --optional strict -- server.js",
-    "client": "nodemon --exec babel-node -- --stage 1 --optional strict -- client.js",
+    "server-mon": "nodemon --exec babel-node -- --stage 1 --optional strict -- server.js",
+    "client-mon": "nodemon --exec babel-node -- --stage 1 --optional strict -- client.js",
+    "server": "babel-node --optional strict --stage 1 -- server.js",
+    "client": "babel-node --optional strict --stage 1 -- client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
